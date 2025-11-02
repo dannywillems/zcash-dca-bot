@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "zcash-dca-bot"
+version = "0.1.0"
+description = "Automated daily ZCash purchases on Kraken with social media updates"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+license = "MIT"
+python = "^3.12"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ccxt = "^4.4.0"
+python-dotenv = "^1.0.1"
+fire = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.0"
+
+[tool.poetry.scripts]
+zcash-dca = "zcash_dca:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
